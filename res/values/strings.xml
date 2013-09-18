@@ -1,12 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">FirstApp</string>
+    <string name="app_name">Learning Java</string>
     <string name="edit_message">Enter a message</string>
+    <string name="confirm_message">Confirm Result</string>
     <string name="button_send">Send</string>
+    <string name="button_go_main">Go To Main View</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="title_activity_display_message">My Message</string>
     <string name="hello_world">Hello world!</string>
+    <string name="title_activity_modal_dialog">ModalDialog</string>
+    <string name="modal_dialog_body">ModalDialog</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
 
 </resources>

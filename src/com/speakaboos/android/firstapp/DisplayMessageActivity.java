@@ -3,6 +3,7 @@ package com.speakaboos.android.firstapp;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 public class DisplayMessageActivity extends Activity {
@@ -15,13 +16,22 @@ public class DisplayMessageActivity extends Activity {
 	    Intent intent = getIntent();
 	    String message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
 
-	    // Create the text view
-	    TextView textView = new TextView(this);
-	    textView.setTextSize(40);
-	    textView.setText(message);
+	    
 
 	    // Set the text view as the activity layout
-	    setContentView(textView);
+	    //setContentView(textView);
+	    setContentView(R.layout.activity_display_message);
+	    
+	 // Create the text view
+	    TextView textView = (TextView) findViewById(R.id.confirm_text);
+	    textView.setTextSize(64);
+	    textView.setText("message: "+message);
+	    textView.setBackgroundColor(4);
+	}
+	
+	public void goMainScreen(View view){
+		Intent intent = new Intent(this, MainActivity.class);
+		startActivity(intent);
 	}
 
 //	/**

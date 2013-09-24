@@ -1,4 +1,4 @@
-package com.speakaboos.android.firstapp;
+package com.speakaboos.android.testIntent;
 
 import android.app.Activity;
 import android.content.Intent;

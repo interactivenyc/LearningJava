@@ -1,4 +1,4 @@
-package com.speakaboos.android.firstapp;
+package com.speakaboos.android.testIntent;
 
 import java.util.List;
 
@@ -54,14 +54,14 @@ public class MainActivity extends Activity {
 		
 		Intent sendIntent = new Intent();
 		sendIntent.setAction(Intent.ACTION_SEND);
-		sendIntent.putExtra(Intent.EXTRA_TEXT, "This is my text to send motherfucker.");
-		//sendIntent.addCategory("android.intent.category.LAUNCHER");
+		sendIntent.putExtra(Intent.EXTRA_TEXT, "This is extra text to send.");
+		sendIntent.addCategory("android.intent.category.DEFAULT");
 		sendIntent.setType("text/plain");
 		
 		log("intentAvailable: "+ isIntentAvailable(this, sendIntent));
 		
-		//startActivity(sendIntent);
-		startActivity(Intent.createChooser(sendIntent, "This is my text to send."));
+		startActivity(sendIntent);
+		//startActivity(Intent.createChooser(sendIntent, "Testing Intent Chooser."));
 	}
 	
 	public void log(String msg){

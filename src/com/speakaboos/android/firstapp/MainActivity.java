@@ -1,8 +1,13 @@
 package com.speakaboos.android.firstapp;
 
+import java.util.List;
+
 import android.os.Bundle;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
@@ -32,6 +37,35 @@ public class MainActivity extends Activity {
 		intent.putExtra(EXTRA_MESSAGE, message);
 		startActivity(intent);
 
+	}
+	
+	
+	public static boolean isIntentAvailable(Context ctx, Intent intent) {
+		   final PackageManager mgr = ctx.getPackageManager();
+		   List<ResolveInfo> list =
+		      mgr.queryIntentActivities(intent, 
+		         PackageManager.MATCH_DEFAULT_ONLY);
+		   return list.size() > 0;
+		} 
+	
+	
+	public void sendIntent(View view){
+		log("sendIntent");
+		
+		Intent sendIntent = new Intent();
+		sendIntent.setAction(Intent.ACTION_SEND);
+		sendIntent.putExtra(Intent.EXTRA_TEXT, "This is my text to send motherfucker.");
+		//sendIntent.addCategory("android.intent.category.LAUNCHER");
+		sendIntent.setType("text/plain");
+		
+		log("intentAvailable: "+ isIntentAvailable(this, sendIntent));
+		
+		//startActivity(sendIntent);
+		startActivity(Intent.createChooser(sendIntent, "This is my text to send."));
+	}
+	
+	public void log(String msg){
+		System.out.println(msg);
 	}
 
 }
